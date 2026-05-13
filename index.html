@@ -6,50 +6,12 @@
 <title>Glossario Odoo</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #f5f5f4;
-    color: #1c1c1c;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-  }
-
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    color: #111;
-  }
-  .subtitle {
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 1.75rem;
-  }
-
-  /* ── App tabs ── */
-  .app-tabs {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-  }
-  .app-tab {
-    font-size: 13px;
-    padding: 5px 16px;
-    border-radius: 20px;
-    border: 1px solid #d4d4d4;
-    background: #fff;
-    color: #555;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all .15s;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #f5f5f4; color: #1c1c1c; min-height: 100vh; padding: 2rem 1rem; }
+  .container { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.25rem; color: #111; }
+  .subtitle { font-size: 0.9rem; color: #888; margin-bottom: 1.75rem; }
+  .app-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .app-tab { font-size: 13px; padding: 5px 16px; border-radius: 20px; border: 1px solid #d4d4d4; background: #fff; color: #555; cursor: pointer; font-weight: 500; transition: all .15s; }
   .app-tab:hover { border-color: #aaa; color: #222; }
   .app-tab.active { color: #fff; border-color: transparent; }
   .app-tab.active.all      { background: #333; }
@@ -57,127 +19,33 @@
   .app-tab.active.sales    { background: #A0391A; }
   .app-tab.active.crm      { background: #1A6B3C; }
   .app-tab.active.contacts { background: #555; }
-
-  /* ── Legend ── */
-  .legend {
-    display: flex;
-    gap: 14px;
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+  .app-tab.active.inventory { background: #6B3A1A; }
+  .legend { display: flex; gap: 14px; font-size: 12px; color: #888; margin-bottom: 1rem; align-items: center; flex-wrap: wrap; }
   .legend-item { display: flex; align-items: center; gap: 5px; }
-  .app-dot {
-    width: 9px; height: 9px;
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
-  }
+  .app-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
   .dot-purchase { background: #0C447C; }
   .dot-sales    { background: #A0391A; }
   .dot-crm      { background: #1A6B3C; }
   .dot-contacts { background: #777; }
-  .dot-both     { background: linear-gradient(135deg, #0C447C 50%, #A0391A 50%); }
-  .dot-multi    { background: conic-gradient(#0C447C 0deg 90deg, #A0391A 90deg 180deg, #1A6B3C 180deg 270deg, #777 270deg 360deg); }
-
-  /* ── Search ── */
-  .search-box {
-    width: 100%;
-    padding: 9px 14px;
-    border-radius: 10px;
-    border: 1px solid #d4d4d4;
-    background: #fff;
-    color: #1c1c1c;
-    font-size: 14px;
-    margin-bottom: 1.25rem;
-    outline: none;
-    transition: border-color .15s;
-  }
+  .dot-inventory { background: #6B3A1A; }
+  .dot-both  { background: linear-gradient(135deg, #0C447C 50%, #A0391A 50%); }
+  .dot-multi { background: conic-gradient(#0C447C 0deg 90deg, #A0391A 90deg 180deg, #1A6B3C 180deg 270deg, #777 270deg 360deg); }
+  .search-box { width: 100%; padding: 9px 14px; border-radius: 10px; border: 1px solid #d4d4d4; background: #fff; color: #1c1c1c; font-size: 14px; margin-bottom: 1.25rem; outline: none; transition: border-color .15s; }
   .search-box:focus { border-color: #888; }
-
-  /* ── Filter bar ── */
-  .filter-bar {
-    display: flex;
-    gap: 7px;
-    flex-wrap: wrap;
-    margin-bottom: 1.4rem;
-  }
-  .filter-btn {
-    font-size: 12px;
-    padding: 4px 13px;
-    border-radius: 20px;
-    border: 1px solid #d4d4d4;
-    background: #fff;
-    color: #666;
-    cursor: pointer;
-    transition: all .15s;
-  }
+  .filter-bar { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 1.4rem; }
+  .filter-btn { font-size: 12px; padding: 4px 13px; border-radius: 20px; border: 1px solid #d4d4d4; background: #fff; color: #666; cursor: pointer; transition: all .15s; }
   .filter-btn:hover { border-color: #aaa; color: #222; }
-  .filter-btn.active {
-    background: #e8e8e8;
-    color: #111;
-    border-color: #aaa;
-    font-weight: 500;
-  }
-
-  /* ── Term list ── */
+  .filter-btn.active { background: #e8e8e8; color: #111; border-color: #aaa; font-weight: 500; }
+  .count { font-size: 12px; color: #aaa; margin-bottom: 0.75rem; }
   .term-list { display: flex; flex-direction: column; gap: 10px; }
-
-  .term-card {
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    transition: border-color .15s, box-shadow .15s;
-  }
-  .term-card:hover {
-    border-color: #ccc;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-  }
-
-  .term-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 7px;
-    flex-wrap: wrap;
-  }
-  .term-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: #111;
-  }
-  .term-badge {
-    font-size: 11px;
-    padding: 2px 9px;
-    border-radius: 20px;
-    white-space: nowrap;
-    font-weight: 500;
-  }
-  .term-def {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.65;
-  }
-  .term-note {
-    font-size: 12px;
-    color: #888;
-    margin-top: 7px;
-    font-style: italic;
-    border-left: 2px solid #e0e0e0;
-    padding-left: 8px;
-  }
-
-  .empty {
-    color: #aaa;
-    font-size: 14px;
-    padding: 1.5rem 0;
-    text-align: center;
-  }
-
-  /* ── Badge colors ── */
+  .term-card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 1rem 1.25rem; transition: border-color .15s, box-shadow .15s; }
+  .term-card:hover { border-color: #ccc; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+  .term-header { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; flex-wrap: wrap; }
+  .term-name { font-size: 15px; font-weight: 600; color: #111; }
+  .term-badge { font-size: 11px; padding: 2px 9px; border-radius: 20px; white-space: nowrap; font-weight: 500; }
+  .term-def { font-size: 14px; color: #444; line-height: 1.65; }
+  .term-note { font-size: 12px; color: #888; margin-top: 7px; font-style: italic; border-left: 2px solid #e0e0e0; padding-left: 8px; }
+  .empty { color: #aaa; font-size: 14px; padding: 1.5rem 0; text-align: center; }
   .b-ordini    { background: #deedfb; color: #0C447C; }
   .b-tempi     { background: #eaebfd; color: #3C3489; }
   .b-accordi   { background: #d9f1e7; color: #085041; }
@@ -190,382 +58,217 @@
   .b-pricing   { background: #fff5d6; color: #7A5500; }
   .b-crm       { background: #d8f0e5; color: #1A6B3C; }
   .b-contacts  { background: #ebebeb; color: #444; }
-
-  /* ── Count ── */
-  .count {
-    font-size: 12px;
-    color: #aaa;
-    margin-bottom: 0.75rem;
-  }
-
-  @media (max-width: 600px) {
-    body { padding: 1rem 0.75rem; }
-    h1 { font-size: 1.3rem; }
-  }
+  .b-inventory { background: #f5e8dc; color: #6B3A1A; }
+  @media (max-width: 600px) { body { padding: 1rem 0.75rem; } h1 { font-size: 1.3rem; } }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>📖 Glossario Odoo</h1>
-  <p class="subtitle">Purchase · Sales · CRM · Contacts — <span id="total-count"></span> termini</p>
-
+  <p class="subtitle">Purchase · Sales · CRM · Contacts · Inventory — <span id="total-count"></span> termini</p>
   <div class="app-tabs">
-    <button class="app-tab active all"   id="tab-all"      onclick="setApp('all')">Tutti</button>
-    <button class="app-tab purchase"     id="tab-purchase" onclick="setApp('purchase')">📦 Purchase</button>
-    <button class="app-tab sales"        id="tab-sales"    onclick="setApp('sales')">🛒 Sales</button>
-    <button class="app-tab crm"          id="tab-crm"      onclick="setApp('crm')">🎯 CRM</button>
-    <button class="app-tab contacts"     id="tab-contacts" onclick="setApp('contacts')">👤 Contacts</button>
+    <button class="app-tab active all"   id="tab-all"       onclick="setApp('all')">Tutti</button>
+    <button class="app-tab purchase"     id="tab-purchase"  onclick="setApp('purchase')">📦 Purchase</button>
+    <button class="app-tab sales"        id="tab-sales"     onclick="setApp('sales')">🛒 Sales</button>
+    <button class="app-tab crm"          id="tab-crm"       onclick="setApp('crm')">🎯 CRM</button>
+    <button class="app-tab contacts"     id="tab-contacts"  onclick="setApp('contacts')">👤 Contacts</button>
+    <button class="app-tab inventory"    id="tab-inventory" onclick="setApp('inventory')">🏭 Inventory</button>
   </div>
-
   <div class="legend">
     <span class="legend-item"><span class="app-dot dot-purchase"></span>Purchase</span>
     <span class="legend-item"><span class="app-dot dot-sales"></span>Sales</span>
     <span class="legend-item"><span class="app-dot dot-crm"></span>CRM</span>
     <span class="legend-item"><span class="app-dot dot-contacts"></span>Contacts</span>
+    <span class="legend-item"><span class="app-dot dot-inventory"></span>Inventory</span>
     <span class="legend-item"><span class="app-dot dot-both"></span>Purchase + Sales</span>
     <span class="legend-item"><span class="app-dot dot-multi"></span>Tutte le app</span>
   </div>
-
   <input class="search-box" type="text" placeholder="Cerca un termine o parola chiave…" id="search" oninput="render()"/>
   <div class="filter-bar" id="filters"></div>
   <div class="count" id="count"></div>
   <div class="term-list" id="list"></div>
 </div>
-
 <script>
 const TERMS=[
   // ── PURCHASE ──────────────────────────────────────────────────────
-  {name:"P2P — Procure to Pay",cat:"ordini",badge:"b-ordini",app:"purchase",
-   def:"Processo end-to-end dall'identificazione del fabbisogno al pagamento del fornitore. In Odoo: RFQ → PO → Ricezione merce → Vendor Bill → Pagamento."},
-  {name:"RFQ — Request for Quotation",cat:"ordini",badge:"b-ordini",app:"both",
-   def:"Preventivo inviato a un fornitore. Può nascere manualmente, da Reordering Rules, da un SO confermato (MTO) o da un Purchase Agreement. Una volta confermata diventa un PO.",
-   note:"RFQ ≠ PO: è solo una richiesta senza impegno formale."},
-  {name:"PO — Purchase Order",cat:"ordini",badge:"b-ordini",app:"purchase",
-   def:"Ordine di acquisto confermato. Legalmente vincolante verso il fornitore. State machine: draft → sent → purchase → done."},
-  {name:"Vendor Bill",cat:"ordini",badge:"b-ordini",app:"purchase",
-   def:"Fattura passiva del fornitore (account.move, move_type='in_invoice'). Generabile su ordine o su ricezione in base al Bill Control.",
-   note:"Può arrivare prima o dopo la ricezione fisica della merce."},
-  {name:"Stock Picking",cat:"ordini",badge:"b-ordini",app:"both",
-   def:"Documento di magazzino generato alla conferma di un PO (ricezione) o di un SO (spedizione). Traccia il movimento fisico della merce. Può essere parziale o suddiviso in più picking."},
-  {name:"Stock Moves",cat:"ordini",badge:"b-ordini",app:"both",
-   def:"Movimenti di magazzino generati da PO o SO. Ogni riga ordine genera un movimento che traccia quantità, prodotto, provenienza e destinazione."},
-  {name:"Vendor",cat:"prodotti",badge:"b-prodotti",app:"purchase",
-   def:"Fornitore registrato come res.partner. Su ogni prodotto si configurano uno o più vendor con pricelist, quantità minima e lead time specifici."},
-  {name:"Product — tipo",cat:"prodotti",badge:"b-prodotti",app:"both",
-   def:"Storable (a magazzino, genera Stock Moves), Consumable (non tracciato), Service (non fisico, non genera ricezione/spedizione). I servizi possono però generare fatture, task e progetti.",
-   note:"Solo i prodotti Storable generano un picking alla conferma del PO/SO."},
-  {name:"Taxes",cat:"prodotti",badge:"b-prodotti",app:"both",
-   def:"Imposte configurate sulle righe di PO/Vendor Bill (acquisto) o SO/Invoice (vendita). Definibili come fiscal positions per fornitore/cliente o prodotto, applicate automaticamente."},
-  {name:"Vendor Pricelist",cat:"pricing",badge:"b-pricing",app:"purchase",
-   def:"Listino prezzi per fornitore nel tab Purchase. Il fornitore in cima è il default. Il prezzo effettivo dipende da fornitore + quantità ordinata."},
-  {name:"Price Selection",cat:"pricing",badge:"b-pricing",app:"purchase",
-   def:"Logica con cui Odoo sceglie il prezzo in una RFQ: vendor prioritario, quantità minima d'ordine, regole di sconto."},
-  {name:"Routes — Buy / Manufacture / Dropship",cat:"logistica",badge:"b-logistica",app:"both",
-   def:"Regole logistiche sul prodotto. Buy genera una RFQ; Manufacture avvia un ordine di produzione; Dropship fa spedire direttamente il fornitore al cliente finale."},
-  {name:"Replenishment",cat:"logistica",badge:"b-logistica",app:"purchase",
-   def:"Riapprovvigionamento dello stock. Avviabile manualmente, dallo scheduler (Reordering Rules) o da MRP."},
-  {name:"MRP — Material Requirements Planning",cat:"logistica",badge:"b-logistica",app:"purchase",
-   def:"Modulo che pianifica i fabbisogni di materiali per la produzione. Genera RFQ/PO automatici per i componenti mancanti."},
-  {name:"MTO — Make to Order",cat:"logistica",badge:"b-logistica",app:"both",
-   def:"Acquisto/produzione avviati solo alla conferma del SO, senza tenere scorta. Genera automaticamente una RFQ collegata al SO.",
-   note:"Opposto di MTS (Make to Stock)."},
-  {name:"Dropshipping",cat:"logistica",badge:"b-logistica",app:"both",
-   def:"La merce va direttamente dal fornitore al cliente senza passare dal magazzino. Route configurabile sul prodotto. Sul SO compare lo smart button 'Dropshipping' al posto del normale Delivery."},
-  {name:"Subcontracting",cat:"logistica",badge:"b-logistica",app:"purchase",
-   def:"Produzione affidata a un terzista. I componenti vengono inviati al terzista; il prodotto finito rientra in magazzino tramite PO."},
-  {name:"Lead Time",cat:"tempi",badge:"b-tempi",app:"both",
-   def:"Tempo totale tra avvio e completamento di un processo. In acquisti: Vendor Lead Time + Purchase Security Lead Time + Days to Purchase.",
-   note:"Esempio: 7gg + 2gg + 1gg = 10 gg totali."},
-  {name:"Vendor Lead Time",cat:"tempi",badge:"b-tempi",app:"purchase",
-   def:"Giorni tra invio ordine al fornitore e ricezione merce. Configurabile sul prodotto o sul singolo fornitore."},
-  {name:"Purchase Security Lead Time",cat:"tempi",badge:"b-tempi",app:"purchase",
-   def:"Cuscinetto di giorni aggiuntivi dopo il Vendor Lead Time per assorbire imprevisti."},
-  {name:"Days to Purchase",cat:"tempi",badge:"b-tempi",app:"purchase",
-   def:"Giorni di anticipo con cui bisogna emettere l'ordine rispetto alla data di necessità."},
-  {name:"Reordering Rules",cat:"config",badge:"b-config",app:"purchase",
-   def:"Regole sul prodotto (min/max stock). Lo scheduler genera RFQ automatiche quando la scorta scende sotto il minimo.",
-   note:"Rilanciabile da Inventory → Operations → Run Scheduler."},
-  {name:"Scheduler / Cron",cat:"config",badge:"b-config",app:"purchase",
-   def:"Processo automatico giornaliero che verifica le Reordering Rules e genera RFQ/PO. Considera la quantità della rule e il fabbisogno da SO in attesa."},
-  {name:"Bill Control",cat:"controllo",badge:"b-controllo",app:"both",
-   def:"Determina quando emettere la fattura: su Ordered Quantities (subito) o su Received/Delivered Quantities (dopo consegna). Sovrascrivibile per singolo prodotto."},
-  {name:"3-Way Matching",cat:"controllo",badge:"b-controllo",app:"purchase",
-   def:"Verifica automatica di coerenza tra PO, ricezione merce e Vendor Bill. Blocca pagamenti per merce non ricevuta o importi discordanti."},
-  {name:"Purchase Order Approval",cat:"controllo",badge:"b-controllo",app:"purchase",
-   def:"Blocca le RFQ oltre una soglia di importo in 'To Approve'. Solo gli admin possono trasformarle in PO."},
-  {name:"Warning / Blocking Message",cat:"controllo",badge:"b-controllo",app:"both",
-   def:"Avvisi su fornitori o prodotti. Blocking Message bloccano l'operazione; Warning la segnalano senza bloccarla."},
-  {name:"State Machine — PO",cat:"dev",badge:"b-dev",app:"purchase",
-   def:"Ciclo di vita del PO: draft → sent → purchase → done. Transizione principale: button_confirm().",
-   note:"Modello ORM: purchase.order"},
-  {name:"purchase.order.line",cat:"dev",badge:"b-dev",app:"purchase",
-   def:"Riga del PO: prodotto, quantità, prezzo unitario, tasse, data prevista. Ogni riga genera un Stock Move alla conferma."},
-  {name:"res.partner",cat:"dev",badge:"b-dev",app:"multi",
-   def:"Modello ORM unico per fornitori, clienti e contatti generici. Usato da Purchase, Sales, CRM e Contacts. Contiene pricelist, payment terms, indirizzi e proprietà custom."},
-  {name:"account.move",cat:"dev",badge:"b-dev",app:"both",
-   def:"Modello ORM per tutte le fatture. Vendor Bill: move_type='in_invoice'. Customer Invoice: move_type='out_invoice'. Collegata al PO/SO tramite purchase_id o sale_id."},
-  {name:"_prepare_* / _compute_* / _onchange_*",cat:"dev",badge:"b-dev",app:"both",
-   def:"Pattern ORM: _prepare_* costruisce dizionari per creare record; _compute_* calcola campi derivati; _onchange_* reagisce a modifiche UI aggiornando altri campi dinamicamente."},
-  {name:"Call for Tenders",cat:"accordi",badge:"b-accordi",app:"purchase",
-   def:"Gara d'appalto: più fornitori, confronto offerte, selezione migliore. Le RFQ degli altri vengono annullate automaticamente."},
-  {name:"Blanket Order",cat:"accordi",badge:"b-accordi",app:"purchase",
-   def:"Accordo quadro a lungo termine con un fornitore, dilazionato nel tempo. Si chiude quando tutte le RFQ diventano PO."},
-  {name:"Alternative RFQ",cat:"accordi",badge:"b-accordi",app:"purchase",
-   def:"RFQ parallela per confrontare prezzi e tempi tra fornitori diversi. Si conferma la migliore e si annullano le altre."},
-  {name:"Purchase Template",cat:"accordi",badge:"b-accordi",app:"purchase",
-   def:"Base riutilizzabile per generare RFQ con prodotti e quantità precompilati. Quantità a zero nel template; stesso fornitore per tutte le RFQ generate."},
-  {name:"Purchase Agreement",cat:"accordi",badge:"b-accordi",app:"purchase",
-   def:"Contenitore per accordi strutturati con fornitori: Call for Tenders, Blanket Orders, Alternative RFQs, Purchase Templates."},
-  {name:"EDI — Electronic Data Interchange",cat:"config",badge:"b-config",app:"both",
-   def:"Protocollo di comunicazione automatica tra aziende: un PO dell'acquirente genera automaticamente un SO nel sistema del fornitore."},
-
+  {name:"P2P — Procure to Pay",cat:"ordini",badge:"b-ordini",app:"purchase",def:"Processo end-to-end dall'identificazione del fabbisogno al pagamento del fornitore. In Odoo: RFQ → PO → Ricezione merce → Vendor Bill → Pagamento."},
+  {name:"RFQ — Request for Quotation",cat:"ordini",badge:"b-ordini",app:"both",def:"Preventivo inviato a un fornitore. Può nascere manualmente, da Reordering Rules, da un SO confermato (MTO) o da un Purchase Agreement. Una volta confermata diventa un PO.",note:"RFQ ≠ PO: è solo una richiesta senza impegno formale."},
+  {name:"PO — Purchase Order",cat:"ordini",badge:"b-ordini",app:"purchase",def:"Ordine di acquisto confermato. Legalmente vincolante verso il fornitore. State machine: draft → sent → purchase → done."},
+  {name:"Vendor Bill",cat:"ordini",badge:"b-ordini",app:"purchase",def:"Fattura passiva del fornitore (account.move, move_type='in_invoice'). Generabile su ordine o su ricezione in base al Bill Control.",note:"Può arrivare prima o dopo la ricezione fisica della merce."},
+  {name:"Stock Picking",cat:"ordini",badge:"b-ordini",app:"both",def:"Documento logistico che contiene uno o più Stock Moves. Rappresenta il processo/la logistica del movimento, non il movimento fisico in sé. Generato alla conferma di un PO (ricezione) o SO (spedizione).",note:"Un picking ≠ il movimento in sé. Può essere parziale o suddiviso in più picking."},
+  {name:"Stock Moves",cat:"ordini",badge:"b-ordini",app:"both",def:"Evento atomico che rappresenta lo spostamento di una quantità di prodotto da una location a un'altra. Ogni riga di PO/SO genera un move. Lifecycle: draft → confirmed → assigned → done.",note:"Un move può splittarsi per gestire lotti, serial number o quantità parziali."},
+  {name:"Vendor",cat:"prodotti",badge:"b-prodotti",app:"purchase",def:"Fornitore registrato come res.partner. Su ogni prodotto si configurano uno o più vendor con pricelist, quantità minima e lead time specifici."},
+  {name:"Product — tipo",cat:"prodotti",badge:"b-prodotti",app:"both",def:"Storable (a magazzino, genera Stock Moves), Consumable (non tracciato), Service (non fisico, non genera ricezione/spedizione). I servizi possono però generare fatture, task e progetti.",note:"Solo i prodotti Storable generano un picking alla conferma del PO/SO."},
+  {name:"Taxes",cat:"prodotti",badge:"b-prodotti",app:"both",def:"Imposte configurate sulle righe di PO/Vendor Bill (acquisto) o SO/Invoice (vendita). Definibili come fiscal positions, applicate automaticamente."},
+  {name:"Vendor Pricelist",cat:"pricing",badge:"b-pricing",app:"purchase",def:"Listino prezzi per fornitore nel tab Purchase. Il fornitore in cima è il default. Il prezzo effettivo dipende da fornitore + quantità ordinata."},
+  {name:"Price Selection",cat:"pricing",badge:"b-pricing",app:"purchase",def:"Logica con cui Odoo sceglie il prezzo in una RFQ: vendor prioritario, quantità minima d'ordine, regole di sconto."},
+  {name:"Routes — Buy / Manufacture / Dropship",cat:"logistica",badge:"b-logistica",app:"both",def:"Regole logistiche sul prodotto. Buy genera una RFQ; Manufacture avvia un ordine di produzione; Dropship fa spedire direttamente il fornitore al cliente finale."},
+  {name:"Replenishment",cat:"logistica",badge:"b-logistica",app:"purchase",def:"Riapprovvigionamento dello stock. Avviabile manualmente, dallo scheduler (Reordering Rules) o da MRP."},
+  {name:"MRP — Material Requirements Planning",cat:"logistica",badge:"b-logistica",app:"purchase",def:"Modulo che pianifica i fabbisogni di materiali per la produzione. Genera RFQ/PO automatici per i componenti mancanti."},
+  {name:"MTO — Make to Order",cat:"logistica",badge:"b-logistica",app:"both",def:"Route che crea automaticamente un PO (o MO) per soddisfare qualsiasi richiesta di inventario non coperta dallo stock. Collega direttamente SO → PO.",note:"Va attivato esplicitamente. Opposto di MTS (Make to Stock)."},
+  {name:"Dropshipping",cat:"logistica",badge:"b-logistica",app:"both",def:"La merce va direttamente dal fornitore al cliente senza passare dal magazzino. Route configurabile sul prodotto. Bypass completo dello stock fisico."},
+  {name:"Subcontracting",cat:"logistica",badge:"b-logistica",app:"purchase",def:"Produzione affidata a un terzista. I componenti vengono inviati al terzista; il prodotto finito rientra in magazzino tramite PO."},
+  {name:"Lead Time",cat:"tempi",badge:"b-tempi",app:"both",def:"Tempo totale tra avvio e completamento di un processo. In acquisti: Vendor Lead Time + Purchase Security Lead Time + Days to Purchase.",note:"Esempio: 7gg + 2gg + 1gg = 10 gg totali."},
+  {name:"Vendor Lead Time",cat:"tempi",badge:"b-tempi",app:"purchase",def:"Giorni tra invio ordine al fornitore e ricezione merce. Configurabile sul prodotto o sul singolo fornitore."},
+  {name:"Purchase Security Lead Time",cat:"tempi",badge:"b-tempi",app:"purchase",def:"Cuscinetto di giorni aggiuntivi dopo il Vendor Lead Time per assorbire imprevisti."},
+  {name:"Days to Purchase",cat:"tempi",badge:"b-tempi",app:"purchase",def:"Giorni di anticipo con cui bisogna emettere l'ordine rispetto alla data di necessità."},
+  {name:"Reordering Rules",cat:"config",badge:"b-config",app:"both",def:"Regole sul prodotto (min/max stock). Lo scheduler genera RFQ automatiche quando la scorta scende sotto il minimo. Con 'Automate' il PO rimane in stato provvisorio da confermare.",note:"Rilanciabile da Inventory → Operations → Run Scheduler."},
+  {name:"Scheduler / Cron",cat:"config",badge:"b-config",app:"purchase",def:"Processo automatico giornaliero che verifica le Reordering Rules e genera RFQ/PO."},
+  {name:"Bill Control",cat:"controllo",badge:"b-controllo",app:"both",def:"Determina quando emettere la fattura: su Ordered Quantities (subito) o su Received/Delivered Quantities (dopo consegna). Sovrascrivibile per singolo prodotto."},
+  {name:"3-Way Matching",cat:"controllo",badge:"b-controllo",app:"purchase",def:"Verifica automatica di coerenza tra PO, ricezione merce e Vendor Bill. Blocca pagamenti per merce non ricevuta o importi discordanti."},
+  {name:"Purchase Order Approval",cat:"controllo",badge:"b-controllo",app:"purchase",def:"Blocca le RFQ oltre una soglia di importo in 'To Approve'. Solo gli admin possono trasformarle in PO."},
+  {name:"Warning / Blocking Message",cat:"controllo",badge:"b-controllo",app:"both",def:"Avvisi su fornitori o prodotti. Blocking Message bloccano l'operazione; Warning la segnalano senza bloccarla."},
+  {name:"State Machine — PO",cat:"dev",badge:"b-dev",app:"purchase",def:"Ciclo di vita del PO: draft → sent → purchase → done. Transizione principale: button_confirm().",note:"Modello ORM: purchase.order"},
+  {name:"purchase.order.line",cat:"dev",badge:"b-dev",app:"purchase",def:"Riga del PO: prodotto, quantità, prezzo unitario, tasse, data prevista. Ogni riga genera un Stock Move alla conferma."},
+  {name:"res.partner",cat:"dev",badge:"b-dev",app:"multi",def:"Modello ORM unico per fornitori, clienti e contatti generici. Usato da Purchase, Sales, CRM e Contacts."},
+  {name:"account.move",cat:"dev",badge:"b-dev",app:"both",def:"Modello ORM per tutte le fatture. Vendor Bill: move_type='in_invoice'. Customer Invoice: move_type='out_invoice'."},
+  {name:"_prepare_* / _compute_* / _onchange_*",cat:"dev",badge:"b-dev",app:"both",def:"Pattern ORM: _prepare_* costruisce dizionari per creare record; _compute_* calcola campi derivati; _onchange_* reagisce a modifiche UI."},
+  {name:"Call for Tenders",cat:"accordi",badge:"b-accordi",app:"purchase",def:"Gara d'appalto: più fornitori, confronto offerte, selezione migliore. Le RFQ degli altri vengono annullate automaticamente."},
+  {name:"Blanket Order",cat:"accordi",badge:"b-accordi",app:"purchase",def:"Accordo quadro a lungo termine con un fornitore, dilazionato nel tempo. Si chiude quando tutte le RFQ diventano PO."},
+  {name:"Alternative RFQ",cat:"accordi",badge:"b-accordi",app:"purchase",def:"RFQ parallela per confrontare prezzi e tempi tra fornitori diversi. Si conferma la migliore e si annullano le altre."},
+  {name:"Purchase Template",cat:"accordi",badge:"b-accordi",app:"purchase",def:"Base riutilizzabile per generare RFQ con prodotti e quantità precompilati. Stesso fornitore per tutte le RFQ generate."},
+  {name:"Purchase Agreement",cat:"accordi",badge:"b-accordi",app:"purchase",def:"Contenitore per accordi strutturati con fornitori: Call for Tenders, Blanket Orders, Alternative RFQs, Purchase Templates."},
+  {name:"EDI — Electronic Data Interchange",cat:"config",badge:"b-config",app:"both",def:"Protocollo di comunicazione automatica tra aziende: un PO dell'acquirente genera automaticamente un SO nel sistema del fornitore."},
   // ── SALES ─────────────────────────────────────────────────────────
-  {name:"O2C — Order to Cash",cat:"ordini",badge:"b-ordini",app:"sales",
-   def:"Processo end-to-end lato vendita: Lead → Quotation → SO → Delivery → Invoice → Payment.",
-   note:"Speculare al P2P lato Purchase. La catena completa lega Sales → Inventory → Accounting."},
-  {name:"Quotation",cat:"ordini",badge:"b-ordini",app:"sales",
-   def:"Preventivo commerciale inviato al cliente. Accettata dal cliente, diventa automaticamente un Sales Order. Può nascere da zero, da un template o direttamente da un'Opportunity nel CRM.",
-   note:"Quotation : cliente = RFQ : fornitore."},
-  {name:"SO — Sales Order",cat:"ordini",badge:"b-ordini",app:"sales",
-   def:"Ordine di vendita confermato. Avvia spedizione e può generare RFQ/PO (MTO) o consegna diretta (Dropshipping). State machine: draft → sent → sale → done."},
-  {name:"Customer Invoice",cat:"ordini",badge:"b-ordini",app:"sales",
-   def:"Fattura attiva emessa al cliente (account.move, move_type='out_invoice'). Generata dopo SO o consegna in base all'Invoicing Policy."},
-  {name:"Backorder",cat:"ordini",badge:"b-ordini",app:"both",
-   def:"Ordine residuo creato quando una spedizione (o ricezione) viene validata con quantità inferiore all'ordinato. Permette di consegnare la quantità mancante in un secondo momento."},
-  {name:"Subscription / Servizi ricorrenti",cat:"ordini",badge:"b-ordini",app:"sales",
-   def:"SO che si rinnova automaticamente a intervalli regolari generando fatture ricorrenti. Richiede l'app Subscriptions.",
-   note:"Tipico per SaaS, manutenzioni, abbonamenti."},
-  {name:"Advance Payment",cat:"ordini",badge:"b-ordini",app:"sales",
-   def:"Fattura parziale emessa prima della consegna. Può essere percentuale, importo fisso o totalità dell'ordine.",
-   note:"Permette di incassare prima di evadere l'ordine."},
-  {name:"Delivery / Spedizione",cat:"logistica",badge:"b-logistica",app:"sales",
-   def:"Picking di uscita generato alla conferma del SO. Visibile come smart button 'Delivery' sul SO; da qui si valida la spedizione fisica."},
-  {name:"Delivery Method",cat:"logistica",badge:"b-logistica",app:"sales",
-   def:"Metodo di spedizione (Fixed Price o Rule Based). Il costo varia per peso/volume/regole. Si aggiunge con 'Add Shipping' prima della conferma.",
-   note:"I metodi possono essere pubblicati sull'ecommerce."},
-  {name:"Route-driven Logic",cat:"logistica",badge:"b-logistica",app:"both",
-   def:"Il comportamento logistico è determinato dalle Route sul prodotto, non dalla logica dell'ordine. La stessa riga SO può generare un picking da stock, una RFQ o un MO a seconda della route attiva."},
-  {name:"Invoicing Policy",cat:"controllo",badge:"b-controllo",app:"both",
-   def:"Quando fatturare: Ordered Quantities (subito) o Delivered Quantities (dopo consegna). Varianti avanzate: Milestone e Timesheets. Sovrascrivibile per singolo prodotto."},
-  {name:"Milestone (invoicing)",cat:"controllo",badge:"b-controllo",app:"sales",
-   def:"Le delivered quantities vengono aggiornate al completamento di milestone nell'App Project. Fatturazione a step legati all'avanzamento del progetto."},
-  {name:"Timesheet (invoicing)",cat:"controllo",badge:"b-controllo",app:"sales",
-   def:"Fatturazione per prodotti Service basata sulle ore registrate nei timesheet collegati al SO."},
-  {name:"Quotation Template",cat:"config",badge:"b-config",app:"sales",
-   def:"Template riutilizzabile per Quotation con prodotti, optional products, T&C precompilati. Configurabile con durata, journal, pagamento e firma online."},
-  {name:"PDF Quote Builder",cat:"config",badge:"b-config",app:"sales",
-   def:"Personalizzazione del PDF della Quotation con header, footer e parametri dinamici. Documenti allegabili con visibilità: Hidden, OnQuote, OnConfirmedOrder."},
-  {name:"Online Signature / Online Payment",cat:"config",badge:"b-config",app:"sales",
-   def:"Permettono al cliente di firmare digitalmente o pagare dal portale. Se paga online, il SO viene confermato e la fattura generata automaticamente."},
-  {name:"Optional Products",cat:"prodotti",badge:"b-prodotti",app:"sales",
-   def:"Prodotti aggiuntivi suggeriti al cliente nella Quotation (upselling). Il cliente può scegliere se aggiungerli prima di confermare."},
-  {name:"Product Packaging",cat:"prodotti",badge:"b-prodotti",app:"sales",
-   def:"Unità di imballo configurabili per un prodotto (es. scatola da 6, pallet da 100). Permette di vendere e spedire in multipli definiti."},
-  {name:"Product Variants",cat:"prodotti",badge:"b-prodotti",app:"sales",
-   def:"Declinazioni di un prodotto base tramite Attributi (colore, taglia, ecc.). Ogni combinazione genera una variante distinta con eventuale extra price.",
-   note:"Da attivare in Product Catalogue → Enable Variants."},
-  {name:"Product Documents",cat:"prodotti",badge:"b-prodotti",app:"sales",
-   def:"File o URL allegati al prodotto. Integrabili nel PDF Quote Builder con visibilità Hidden / OnQuote / OnConfirmedOrder."},
-  {name:"Pricelist (Sales)",cat:"pricing",badge:"b-pricing",app:"sales",
-   def:"Listino prezzi lato vendita applicabile per cliente, paese o segmento. Supporta prezzi fissi, sconti e formule custom. Se Selectable, il cliente può sceglierla online."},
-  {name:"Payment Terms",cat:"pricing",badge:"b-pricing",app:"both",
-   def:"Condizioni di pagamento (es. '2/7 Net 30': 2% sconto se si paga entro 7 gg, saldo entro 30 gg). Gestiscono la scadenza di Vendor Bill e Customer Invoice."},
-  {name:"Discount",cat:"promo",badge:"b-promo",app:"sales",
-   def:"Riduzione percentuale sulle righe della Quotation. Può essere manuale o automatica tramite Pricelists e Promotion Programs."},
-  {name:"Coupon",cat:"promo",badge:"b-promo",app:"sales",
-   def:"Codice promozionale con limite di utilizzi e regole condizionali. Il cliente lo inserisce nella Quotation per ottenere sconti o omaggi."},
-  {name:"Loyalty Program",cat:"promo",badge:"b-promo",app:"sales",
-   def:"Programma fedeltà: punti assegnati in base agli acquisti, convertibili in Reward. I Reward vengono aggiunti nella Sales Quotation."},
-  {name:"Gift Card",cat:"promo",badge:"b-promo",app:"sales",
-   def:"Carta prepagata con valore e scadenza. Emettibile per clienti specifici e usabile come metodo di pagamento su Quotation successive."},
-  {name:"Promotion / Discount Program",cat:"promo",badge:"b-promo",app:"sales",
-   def:"Programma promozionale con discount code, scadenza opzionale, conditional rules e combinazioni con Coupons e Loyalty Programs."},
-  {name:"Sales Tax",cat:"controllo",badge:"b-controllo",app:"sales",
-   def:"Imposta sulle righe di vendita. Quattro modalità: Fixed, Percentage of Price, Percentage of Price Tax Included, Python Code."},
-  {name:"Commission Plan",cat:"config",badge:"b-config",app:"sales",
-   def:"Tracciamento commissioni per sales person. Tipi: Target (bonus se si supera la quota) o Achievement (proporzionale al raggiunto)."},
-  {name:"Track Inventory",cat:"config",badge:"b-config",app:"sales",
-   def:"Flag sul prodotto che lo collega all'app Inventory per il tracciamento delle quantità a stock."},
-  {name:"Income / Expense Account",cat:"config",badge:"b-config",app:"both",
-   def:"Conti contabili collegati al prodotto. Income Account: ricavi di vendita. Expense Account: costi di acquisto."},
-  {name:"Product Catalog",cat:"config",badge:"b-config",app:"both",
-   def:"Vista a catalogo per aggiungere prodotti rapidamente a una Quotation o PO, con immagini, prezzi e disponibilità."},
-  {name:"State Machine — SO",cat:"dev",badge:"b-dev",app:"sales",
-   def:"Ciclo di vita del SO: draft → sent → sale → done. Transizione principale: action_confirm(), che crea delivery e procurement.",
-   note:"Modello ORM: sale.order"},
-  {name:"sale.order",cat:"dev",badge:"b-dev",app:"sales",
-   def:"Modello ORM principale di Sales. Contiene intestazione dell'ordine e relazioni con sale.order.line, stock.picking e account.move."},
-  {name:"sale.order.line",cat:"dev",badge:"b-dev",app:"sales",
-   def:"Riga del SO: prodotto, quantità, prezzo, tasse. Campi compute chiave: qty_delivered, qty_invoiced, price_subtotal. Può generare un procurement (buy/manufacture/stock)."},
-  {name:"action_confirm()",cat:"dev",badge:"b-dev",app:"sales",
-   def:"Metodo ORM che gestisce la conferma del SO: cambia stato in 'sale', crea Stock Picking (delivery), attiva il Procurement Engine.",
-   note:"Override comune nelle customizzazioni Sales."},
-  {name:"Procurement Engine",cat:"dev",badge:"b-dev",app:"both",
-   def:"Motore interno che collega Sales, Inventory, Purchase e MRP. Analizza le route sul prodotto e decide se generare Stock Move, RFQ o ordine di produzione.",
-   note:"Catena: SO → Procurement → Stock Move → Delivery / RFQ / MO"},
-  {name:"Procurement Group",cat:"dev",badge:"b-dev",app:"both",
-   def:"Entità tecnica che raggruppa Stock Moves, PO e MO generati dallo stesso SO, garantendo tracciabilità end-to-end.",
-   note:"Ogni SO crea un Procurement Group; i documenti collegati condividono lo stesso gruppo."},
-  {name:"qty_delivered / qty_invoiced / amount_total",cat:"dev",badge:"b-dev",app:"sales",
-   def:"Campi compute di sale.order/line. qty_delivered: consegnato (da Stock Moves). qty_invoiced: già fatturato. amount_total: totale con tasse. Determinano cosa resta da consegnare o fatturare."},
-
+  {name:"O2C — Order to Cash",cat:"ordini",badge:"b-ordini",app:"sales",def:"Processo end-to-end lato vendita: Lead → Quotation → SO → Delivery → Invoice → Payment."},
+  {name:"Quotation",cat:"ordini",badge:"b-ordini",app:"sales",def:"Preventivo commerciale inviato al cliente. Accettata, diventa un Sales Order. Può nascere da zero, da un template o da un'Opportunity nel CRM.",note:"Quotation : cliente = RFQ : fornitore."},
+  {name:"SO — Sales Order",cat:"ordini",badge:"b-ordini",app:"sales",def:"Ordine di vendita confermato. Avvia spedizione e può generare RFQ/PO (MTO) o consegna diretta (Dropshipping). State machine: draft → sent → sale → done."},
+  {name:"Customer Invoice",cat:"ordini",badge:"b-ordini",app:"sales",def:"Fattura attiva emessa al cliente (account.move, move_type='out_invoice'). Generata dopo SO o consegna in base all'Invoicing Policy."},
+  {name:"Backorder",cat:"ordini",badge:"b-ordini",app:"both",def:"Ordine residuo creato quando una spedizione (o ricezione) viene validata con quantità inferiore all'ordinato. Politica configurabile: Ask / Always / Never.",note:"Se si fattura su Delivered Quantities, si può spedire parzialmente senza problemi."},
+  {name:"Subscription / Servizi ricorrenti",cat:"ordini",badge:"b-ordini",app:"sales",def:"SO che si rinnova automaticamente a intervalli regolari generando fatture ricorrenti.",note:"Tipico per SaaS, manutenzioni, abbonamenti."},
+  {name:"Advance Payment",cat:"ordini",badge:"b-ordini",app:"sales",def:"Fattura parziale emessa prima della consegna. Può essere percentuale, importo fisso o totalità dell'ordine."},
+  {name:"Delivery / Spedizione",cat:"logistica",badge:"b-logistica",app:"sales",def:"Picking di uscita (outbound) generato alla conferma del SO. Visibile come smart button 'Delivery' sul SO; da qui si valida la spedizione fisica."},
+  {name:"Delivery Method",cat:"logistica",badge:"b-logistica",app:"sales",def:"Metodo di spedizione (Fixed Price o Rule Based). Si aggiunge con 'Add Shipping' prima della conferma.",note:"I metodi possono essere pubblicati sull'ecommerce."},
+  {name:"Route-driven Logic",cat:"logistica",badge:"b-logistica",app:"both",def:"Il comportamento logistico è determinato dalle Route sul prodotto. La stessa riga SO può generare un picking da stock, una RFQ o un MO a seconda della route attiva."},
+  {name:"Invoicing Policy",cat:"controllo",badge:"b-controllo",app:"both",def:"Quando fatturare: Ordered Quantities (subito) o Delivered Quantities (dopo consegna). Varianti avanzate: Milestone e Timesheets."},
+  {name:"Milestone (invoicing)",cat:"controllo",badge:"b-controllo",app:"sales",def:"Le delivered quantities vengono aggiornate al completamento di milestone nell'App Project. Fatturazione a step legati all'avanzamento del progetto."},
+  {name:"Timesheet (invoicing)",cat:"controllo",badge:"b-controllo",app:"sales",def:"Fatturazione per prodotti Service basata sulle ore registrate nei timesheet collegati al SO."},
+  {name:"Quotation Template",cat:"config",badge:"b-config",app:"sales",def:"Template riutilizzabile per Quotation con prodotti, optional products, T&C precompilati."},
+  {name:"PDF Quote Builder",cat:"config",badge:"b-config",app:"sales",def:"Personalizzazione del PDF della Quotation con header, footer e parametri dinamici. Documenti allegabili con visibilità: Hidden, OnQuote, OnConfirmedOrder."},
+  {name:"Online Signature / Online Payment",cat:"config",badge:"b-config",app:"sales",def:"Permettono al cliente di firmare digitalmente o pagare dal portale. Se paga online, il SO viene confermato e la fattura generata automaticamente."},
+  {name:"Optional Products",cat:"prodotti",badge:"b-prodotti",app:"sales",def:"Prodotti aggiuntivi suggeriti al cliente nella Quotation (upselling)."},
+  {name:"Product Packaging",cat:"prodotti",badge:"b-prodotti",app:"sales",def:"Unità di imballo configurabili per un prodotto (es. scatola da 6, pallet da 100)."},
+  {name:"Product Variants",cat:"prodotti",badge:"b-prodotti",app:"sales",def:"Declinazioni di un prodotto base tramite Attributi. Ogni combinazione genera una variante distinta con eventuale extra price.",note:"Da attivare in Product Catalogue → Enable Variants."},
+  {name:"Product Documents",cat:"prodotti",badge:"b-prodotti",app:"sales",def:"File o URL allegati al prodotto. Integrabili nel PDF Quote Builder con visibilità Hidden / OnQuote / OnConfirmedOrder."},
+  {name:"Pricelist (Sales)",cat:"pricing",badge:"b-pricing",app:"sales",def:"Listino prezzi lato vendita per cliente, paese o segmento. Supporta prezzi fissi, sconti e formule custom."},
+  {name:"Payment Terms",cat:"pricing",badge:"b-pricing",app:"both",def:"Condizioni di pagamento (es. '2/7 Net 30': 2% sconto se si paga entro 7 gg, saldo entro 30 gg)."},
+  {name:"Discount",cat:"promo",badge:"b-promo",app:"sales",def:"Riduzione percentuale sulle righe della Quotation. Può essere manuale o automatica tramite Pricelists e Promotion Programs."},
+  {name:"Coupon",cat:"promo",badge:"b-promo",app:"sales",def:"Codice promozionale con limite di utilizzi e regole condizionali. Il cliente lo inserisce nella Quotation per ottenere sconti o omaggi."},
+  {name:"Loyalty Program",cat:"promo",badge:"b-promo",app:"sales",def:"Programma fedeltà: punti assegnati in base agli acquisti, convertibili in Reward."},
+  {name:"Gift Card",cat:"promo",badge:"b-promo",app:"sales",def:"Carta prepagata con valore e scadenza. Emettibile per clienti specifici e usabile come metodo di pagamento."},
+  {name:"Promotion / Discount Program",cat:"promo",badge:"b-promo",app:"sales",def:"Programma promozionale con discount code, scadenza opzionale, conditional rules e combinazioni con Coupons e Loyalty Programs."},
+  {name:"Sales Tax",cat:"controllo",badge:"b-controllo",app:"sales",def:"Imposta sulle righe di vendita. Quattro modalità: Fixed, Percentage of Price, Percentage of Price Tax Included, Python Code."},
+  {name:"Commission Plan",cat:"config",badge:"b-config",app:"sales",def:"Tracciamento commissioni per sales person. Tipi: Target o Achievement."},
+  {name:"Track Inventory",cat:"config",badge:"b-config",app:"sales",def:"Flag sul prodotto che lo collega all'app Inventory per il tracciamento delle quantità a stock."},
+  {name:"Income / Expense Account",cat:"config",badge:"b-config",app:"both",def:"Conti contabili collegati al prodotto. Income Account: ricavi di vendita. Expense Account: costi di acquisto."},
+  {name:"Product Catalog",cat:"config",badge:"b-config",app:"both",def:"Vista a catalogo per aggiungere prodotti rapidamente a una Quotation o PO."},
+  {name:"State Machine — SO",cat:"dev",badge:"b-dev",app:"sales",def:"Ciclo di vita del SO: draft → sent → sale → done. Transizione principale: action_confirm().",note:"Modello ORM: sale.order"},
+  {name:"sale.order",cat:"dev",badge:"b-dev",app:"sales",def:"Modello ORM principale di Sales. Contiene intestazione dell'ordine e relazioni con sale.order.line, stock.picking e account.move."},
+  {name:"sale.order.line",cat:"dev",badge:"b-dev",app:"sales",def:"Riga del SO: prodotto, quantità, prezzo, tasse. Campi compute chiave: qty_delivered, qty_invoiced, price_subtotal."},
+  {name:"action_confirm()",cat:"dev",badge:"b-dev",app:"sales",def:"Metodo ORM che gestisce la conferma del SO: cambia stato in 'sale', crea Stock Picking, attiva il Procurement Engine.",note:"Override comune nelle customizzazioni Sales."},
+  {name:"Procurement Engine",cat:"dev",badge:"b-dev",app:"both",def:"Motore interno che collega Sales, Inventory, Purchase e MRP. Analizza le route e decide se generare Stock Move, RFQ o ordine di produzione.",note:"Catena: SO → Procurement → Stock Move → Delivery / RFQ / MO"},
+  {name:"Procurement Group",cat:"dev",badge:"b-dev",app:"both",def:"Entità tecnica che raggruppa Stock Moves, PO e MO generati dallo stesso SO, garantendo tracciabilità end-to-end."},
+  {name:"qty_delivered / qty_invoiced / amount_total",cat:"dev",badge:"b-dev",app:"sales",def:"Campi compute di sale.order/line. qty_delivered: consegnato. qty_invoiced: già fatturato. amount_total: totale con tasse."},
   // ── CONTACTS ──────────────────────────────────────────────────────
-  {name:"Contatto (res.partner)",cat:"contacts",badge:"b-contacts",app:"contacts",
-   def:"Entità base del modulo Contacts, condivisa con tutte le app Odoo. Può essere persona fisica o azienda. Le persone fisiche si associano a un'azienda (entità giuridica). Ogni contatto può essere fornitore, cliente, entrambi o nessuno."},
-  {name:"Etichette (Tags)",cat:"contacts",badge:"b-contacts",app:"multi",
-   def:"Tag liberi applicabili ai contatti per categorizzarli rapidamente. Facili da creare ma possono proliferare e generare duplicati. Per classificazioni strutturate è preferibile usare Proprietà Custom.",
-   note:"Meglio un campo Selezione custom quando i valori sono un insieme finito e controllato."},
-  {name:"Proprietà Custom",cat:"contacts",badge:"b-contacts",app:"multi",
-   def:"Campi aggiuntivi configurabili sui contatti senza sviluppo. Tipi: Testo, Numero, Data, Selezione (valori predefiniti), Checkbox, Molti a molti. Permettono di strutturare dati aziendali specifici.",
-   note:"Esempio: campo 'Segmento' con valori Enterprise / SME / Startup."},
-  {name:"Smart Button",cat:"contacts",badge:"b-contacts",app:"multi",
-   def:"Pulsanti contestuali in cima a un record che collegano ai documenti correlati nelle altre app (SO, PO, Fatture, Opportunità, ecc.). Il conteggio indica quanti record collegati esistono.",
-   note:"Visibili solo se le app corrispondenti sono installate."},
-  {name:"Filtri e Raggruppamenti",cat:"contacts",badge:"b-contacts",app:"multi",
-   def:"Strumenti di ricerca disponibili in ogni modulo. I Filtri riducono la lista ai record che soddisfano una condizione. I Raggruppamenti aggregano per un campo. Entrambi salvabili come Preferiti.",
-   note:"Combinabili: si può filtrare per segmento e raggruppare per città contemporaneamente."},
-
+  {name:"Contatto (res.partner)",cat:"contacts",badge:"b-contacts",app:"contacts",def:"Entità base condivisa con tutte le app Odoo. Può essere persona fisica o azienda. Ogni contatto può essere fornitore, cliente, entrambi o nessuno."},
+  {name:"Etichette (Tags)",cat:"contacts",badge:"b-contacts",app:"multi",def:"Tag liberi applicabili ai contatti. Per classificazioni strutturate è preferibile usare Proprietà Custom.",note:"Meglio un campo Selezione custom quando i valori sono un insieme finito."},
+  {name:"Proprietà Custom",cat:"contacts",badge:"b-contacts",app:"multi",def:"Campi aggiuntivi configurabili senza sviluppo. Tipi: Testo, Numero, Data, Selezione, Checkbox, Molti a molti."},
+  {name:"Smart Button",cat:"contacts",badge:"b-contacts",app:"multi",def:"Pulsanti contestuali in cima a un record che collegano ai documenti correlati nelle altre app.",note:"Visibili solo se le app corrispondenti sono installate."},
+  {name:"Filtri e Raggruppamenti",cat:"contacts",badge:"b-contacts",app:"multi",def:"Strumenti di ricerca disponibili in ogni modulo. I Filtri riducono la lista. I Raggruppamenti aggregano per un campo. Entrambi salvabili come Preferiti."},
   // ── CRM ───────────────────────────────────────────────────────────
-  {name:"Pipeline di vendita",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Insieme di tutte le fasi in cui può trovarsi un'opportunità commerciale. Visualizzata come Kanban. Le fasi sono configurabili liberamente per adattarsi al processo aziendale.",
-   note:"Default Odoo: Nuova → Qualificata → Proposta → Vinta. La pipeline non è una sequenza rigida: è possibile saltare fasi o tornare indietro."},
-  {name:"Lead",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Contatto o interesse commerciale grezzo, non ancora qualificato. Può essere raccolta automaticamente da form sul sito, email catch-all o connettori esterni. Una Lead qualificata si converte in Opportunità.",
-   note:"Lead ≠ cliente. Lead ≠ Opportunity. Flusso: Lead → Qualificazione → Opportunity."},
-  {name:"Opportunità (Opportunity)",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Record principale del CRM: rappresenta una trattativa concreta collegata a un contatto. Contiene dettagli commerciali, note interne, provenienza e cronologia (chatter). Può generare una Quotation nel modulo Sales.",
-   note:"Opportunity ≠ ordine. Il CRM non gestisce fatturazione."},
-  {name:"Qualificazione (Qualification)",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Processo di valutazione di una Lead per determinare se ha un potenziale commerciale reale. In Odoo corrisponde alla transizione da Lead a Opportunity. Durante la qualificazione si raccolgono informazioni su budget, necessità, tempi e decisori.",
-   note:"Solo le lead qualificate entrano nella pipeline come Opportunity."},
-  {name:"Fase (Stage)",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Singolo step della pipeline di vendita. Rappresenta lo stato di avanzamento di un'opportunità. Configurabili globalmente o per singolo Sales Team. A ogni fase è associata una probabilità di chiusura di default.",
-   note:"Le fasi specifiche di un team non appaiono nella pipeline degli altri team."},
-  {name:"Won / Lost",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Stati terminali di un'opportunità. Won (Vinta): si è conclusa positivamente, genera un SO nel modulo Sales. Lost (Persa): la trattativa è fallita; Odoo chiede un motivo di perdita per analisi future. Entrambi impostabili manualmente o tramite automazione.",
-   note:"Metodi ORM: action_set_won() e action_set_lost()."},
-  {name:"Forecast Revenue / Expected Revenue",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Valore economico atteso da un'opportunità. Expected Revenue è l'importo stimato. Il Forecast Revenue è il valore ponderato per la probabilità (Expected Revenue × Probabilità%). Usati per previsioni commerciali aggregate sulla pipeline.",
-   note:"Esempio: 10.000€ con probabilità 40% → Forecast Revenue = 4.000€."},
-  {name:"Lead Scoring",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Punteggio assegnato a una lead per valutarne qualità e priorità. In Odoo può essere manuale o automatico tramite modello predittivo basato sui dati storici. Influisce sulla probabilità di chiusura.",
-   note:"Il modello predittivo si affina man mano che si accumulano dati su opportunità vinte e perse."},
-  {name:"Probabilità (Probability)",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Percentuale stimata di chiusura positiva di un'opportunità. Può essere impostata manualmente o calcolata automaticamente da un modello predittivo che si affina con i dati storici.",
-   note:"Usata per ponderare il valore della pipeline nel Forecast Revenue."},
-  {name:"Team di vendita (Sales Team)",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Gruppo di commerciali con un caposquadra. Le opportunità e le fasi possono essere assegnate a team specifici. Ogni team può avere la propria pipeline con fasi dedicate.",
-   note:"Utile per separare business unit, aree geografiche o linee di prodotto."},
-  {name:"Addetto vendite (Salesperson)",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Utente Odoo responsabile di un'opportunità o di un SO. Cambiare l'addetto trasferisce la responsabilità. Usato anche per il calcolo delle commissioni nel modulo Sales."},
-  {name:"Attività (Activity)",cat:"crm",badge:"b-crm",app:"multi",
-   def:"Azione pianificata collegata a un record: chiamata, email, videocall, meeting, to-do. Ha una scadenza e un responsabile. Le attività in ritardo sono visibili e ridistribuibili nel team.",
-   note:"Disponibili in tutti i moduli Odoo. Sono il cuore operativo del follow-up commerciale nel CRM."},
-  {name:"Chatter",cat:"crm",badge:"b-crm",app:"multi",
-   def:"Log cronologico delle interazioni su un record: note interne, messaggi, modifiche, attività. Permette la collaborazione tra utenti senza uscire dal documento.",
-   note:"Presente in quasi tutti i moduli: CRM, Sales, Purchase, Inventory, ecc."},
-  {name:"Email catch-all",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Indirizzo email dedicato in cui ogni messaggio ricevuto crea automaticamente una Lead o Opportunity nel CRM. Permette di non perdere contatti inbound senza inserimento manuale.",
-   note:"Le regole di assegnazione automatica smistano poi le lead ai team o agli addetti corretti."},
-  {name:"Regole di assegnazione automatica",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Regole che assegnano automaticamente lead e opportunità al team o all'addetto corretto in base a criteri definiti (paese, lingua, fonte, prodotto). Possono anche compilare automaticamente i campi Informazioni aggiuntive."},
-  {name:"Informazioni aggiuntive (Extra Info)",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Sezione dell'opportunità che traccia la provenienza del lead: canale, campagna, sorgente, media. Fondamentale per analizzare quali canali generano le opportunità migliori.",
-   note:"Può essere compilata manualmente o automaticamente tramite regole di assegnazione."},
-  {name:"Merge duplicati",cat:"crm",badge:"b-crm",app:"crm",
-   def:"Funzionalità che permette di unire due o più lead/opportunità duplicate in un unico record, consolidando le informazioni. Odoo identifica potenziali duplicati in base al nome del contatto o all'email.",
-   note:"Accessibile dal menu azione sulle lead selezionate nella vista lista."},
-  {name:"crm.lead",cat:"dev",badge:"b-dev",app:"crm",
-   def:"Modello ORM unico per Lead e Opportunity. Il campo type distingue i due stati: type='lead' per le lead non qualificate, type='opportunity' per le trattative attive. Contiene probability, expected_revenue, stage_id, user_id, team_id.",
-   note:"La conversione lead → opportunity cambia il campo type e può fare merge di duplicati."},
-  {name:"crm.stage",cat:"dev",badge:"b-dev",app:"crm",
-   def:"Modello ORM che rappresenta una fase della pipeline CRM. Contiene nome, probabilità di default e il team di vendita a cui appartiene (se specifica di un team). Le opportunità si spostano tra stage tramite Kanban o aggiornando stage_id."},
-  {name:"mail.activity",cat:"dev",badge:"b-dev",app:"multi",
-   def:"Modello ORM per le attività pianificate collegate a qualsiasi record Odoo tramite il mixin mail.activity.mixin. Contiene activity_type_id, date_deadline, user_id, note. Usato in CRM, Sales, Purchase e tutti i moduli con chatter."},
-  {name:"mail.thread",cat:"dev",badge:"b-dev",app:"multi",
-   def:"Mixin ORM che aggiunge il Chatter a qualsiasi modello Odoo. Abilita messaggi, note interne, tracking delle modifiche ai campi e invio email direttamente dal record.",
-   note:"Senza mail.thread un modello non ha chatter né storico delle comunicazioni."},
-  {name:"action_set_won() / action_set_lost()",cat:"dev",badge:"b-dev",app:"crm",
-   def:"Metodi ORM di crm.lead. action_set_won() imposta probabilità al 100% e sposta nello stage Won. action_set_lost() imposta probabilità a 0% e registra il motivo di perdita.",
-   note:"Override comune per aggiungere logiche custom alla chiusura delle trattative."},
-  {name:"action_new_quotation()",cat:"dev",badge:"b-dev",app:"crm",
-   def:"Metodo ORM di crm.lead che genera una nuova Quotation nel modulo Sales, precompilando cliente, pricelist e prodotti dall'opportunità. Punto di integrazione CRM → Sales.",
-   note:"Il SO generato rimane collegato all'opportunità tramite il campo opportunity_id su sale.order."},
+  {name:"Pipeline di vendita",cat:"crm",badge:"b-crm",app:"crm",def:"Insieme di tutte le fasi in cui può trovarsi un'opportunità commerciale. Visualizzata come Kanban. Fasi configurabili liberamente.",note:"Default: Nuova → Qualificata → Proposta → Vinta. Non è una sequenza rigida."},
+  {name:"Lead",cat:"crm",badge:"b-crm",app:"crm",def:"Contatto o interesse commerciale grezzo, non ancora qualificato. Raccoglibile automaticamente da form, email catch-all o connettori.",note:"Lead ≠ cliente. Flusso: Lead → Qualificazione → Opportunity."},
+  {name:"Opportunità (Opportunity)",cat:"crm",badge:"b-crm",app:"crm",def:"Record principale del CRM: trattativa concreta collegata a un contatto. Può generare una Quotation nel modulo Sales.",note:"Opportunity ≠ ordine. Il CRM non gestisce fatturazione."},
+  {name:"Qualificazione (Qualification)",cat:"crm",badge:"b-crm",app:"crm",def:"Transizione da Lead a Opportunity dopo valutazione del potenziale commerciale (budget, necessità, tempi, decisori)."},
+  {name:"Fase (Stage)",cat:"crm",badge:"b-crm",app:"crm",def:"Singolo step della pipeline. Configurabili globalmente o per singolo Sales Team. A ogni fase è associata una probabilità di chiusura di default."},
+  {name:"Won / Lost",cat:"crm",badge:"b-crm",app:"crm",def:"Stati terminali di un'opportunità. Won genera un SO. Lost registra un motivo di perdita per analisi future.",note:"Metodi ORM: action_set_won() e action_set_lost()."},
+  {name:"Forecast Revenue / Expected Revenue",cat:"crm",badge:"b-crm",app:"crm",def:"Expected Revenue: importo stimato. Forecast Revenue: valore ponderato per probabilità (Expected × Probabilità%).",note:"Esempio: 10.000€ × 40% → Forecast = 4.000€."},
+  {name:"Lead Scoring",cat:"crm",badge:"b-crm",app:"crm",def:"Punteggio per valutare qualità e priorità di una lead. Manuale o automatico tramite modello predittivo basato sui dati storici."},
+  {name:"Probabilità (Probability)",cat:"crm",badge:"b-crm",app:"crm",def:"Percentuale stimata di chiusura positiva. Impostabile manualmente o calcolata automaticamente. Usata per ponderare il Forecast Revenue."},
+  {name:"Team di vendita (Sales Team)",cat:"crm",badge:"b-crm",app:"crm",def:"Gruppo di commerciali con un caposquadra. Ogni team può avere la propria pipeline con fasi dedicate."},
+  {name:"Addetto vendite (Salesperson)",cat:"crm",badge:"b-crm",app:"crm",def:"Utente Odoo responsabile di un'opportunità o SO. Usato anche per il calcolo delle commissioni."},
+  {name:"Attività (Activity)",cat:"crm",badge:"b-crm",app:"multi",def:"Azione pianificata su un record: chiamata, email, videocall, meeting, to-do. Ha una scadenza e un responsabile.",note:"Disponibili in tutti i moduli Odoo."},
+  {name:"Chatter",cat:"crm",badge:"b-crm",app:"multi",def:"Log cronologico delle interazioni su un record: note interne, messaggi, modifiche, attività.",note:"Presente in quasi tutti i moduli Odoo."},
+  {name:"Email catch-all",cat:"crm",badge:"b-crm",app:"crm",def:"Indirizzo email dedicato in cui ogni messaggio ricevuto crea automaticamente una Lead o Opportunity nel CRM."},
+  {name:"Regole di assegnazione automatica",cat:"crm",badge:"b-crm",app:"crm",def:"Assegnano automaticamente lead e opportunità al team o all'addetto corretto in base a criteri definiti."},
+  {name:"Informazioni aggiuntive (Extra Info)",cat:"crm",badge:"b-crm",app:"crm",def:"Sezione dell'opportunità che traccia la provenienza: canale, campagna, sorgente, media."},
+  {name:"Merge duplicati",cat:"crm",badge:"b-crm",app:"crm",def:"Unisce due o più lead/opportunità duplicate in un unico record. Odoo identifica i duplicati per nome contatto o email."},
+  {name:"crm.lead",cat:"dev",badge:"b-dev",app:"crm",def:"Modello ORM unico per Lead e Opportunity. Il campo type distingue i due stati. Contiene probability, expected_revenue, stage_id, user_id, team_id."},
+  {name:"crm.stage",cat:"dev",badge:"b-dev",app:"crm",def:"Modello ORM per le fasi della pipeline CRM. Contiene nome, probabilità di default e team_id."},
+  {name:"mail.activity",cat:"dev",badge:"b-dev",app:"multi",def:"Modello ORM per le attività pianificate. Contiene activity_type_id, date_deadline, user_id, note. Collegabile tramite mail.activity.mixin."},
+  {name:"mail.thread",cat:"dev",badge:"b-dev",app:"multi",def:"Mixin ORM che aggiunge il Chatter a qualsiasi modello. Abilita messaggi, note interne, tracking modifiche e invio email.",note:"Senza mail.thread un modello non ha chatter né storico comunicazioni."},
+  {name:"action_set_won() / action_set_lost()",cat:"dev",badge:"b-dev",app:"crm",def:"Metodi ORM di crm.lead. Won → probabilità 100%. Lost → probabilità 0% + motivo di perdita.",note:"Override comune per logiche custom sulla chiusura trattative."},
+  {name:"action_new_quotation()",cat:"dev",badge:"b-dev",app:"crm",def:"Metodo ORM di crm.lead che genera una Quotation in Sales, precompilando cliente, pricelist e prodotti dall'opportunità."},
+  // ── INVENTORY ────────────────────────────────────────────────────
+  {name:"Flussi Inbound / Outbound / Internal",cat:"inventory",badge:"b-inventory",app:"inventory",def:"I tre macro-flussi di movimentazione. Inbound (IN): merce in arrivo dal fornitore verso lo stock, generato da un PO. Outbound (OUT): merce in uscita verso il cliente, generato da un SO. Internal: movimento tra location interne, non genera documenti fiscali.",note:"Ogni flusso genera un tipo di Stock Picking distinto: incoming, outgoing, internal."},
+  {name:"Incoming Shipment vs Delivery Order",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Incoming Shipment: picking inbound generato da un PO, rappresenta la ricezione fisica dal fornitore. Delivery Order: picking outbound generato da un SO, rappresenta la spedizione al cliente. Entrambi sono stock.picking ma con operation_type e location diversi.",note:"Incoming: Vendor Location → WH/Stock. Delivery: WH/Stock → Customer Location."},
+  {name:"Warehouse",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Unità organizzativa principale del magazzino. Rappresenta un edificio fisico o sito logistico distinto sotto la Company. Ogni warehouse ha i propri picking type e processi configurabili.",note:"Si creano più warehouse per edifici con processi diversi. Ogni warehouse genera automaticamente le operazioni di default."},
+  {name:"Location",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Posizione fisica o virtuale all'interno o esterna a un warehouse. Gerarchia: Company → Warehouse → Location → Sublocation. Tipi: Internal, Scrap, Virtual (produzione/perdite), Customer, Vendor.",note:"Le location Virtual non sono fisiche: usate come origine/destinazione contabile (es. perdita, produzione)."},
+  {name:"Sublocation",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Location annidata all'interno di un'altra. Permette di definire scaffali, corsie, bins. Ogni Stock Move traccia la location di origine e quella di destinazione."},
+  {name:"Scrap Location",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Location speciale per prodotti danneggiati, obsoleti o non vendibili. I prodotti spostati in Scrap escono dallo stock disponibile ma rimangono tracciati per reportistica."},
+  {name:"Lot / Numero di lotto",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Identificatore assegnato a un gruppo di prodotti della stessa produzione o fornitura. Si configura con Track Inventory 'by Lots'.",note:"Diverso dal Serial Number: un lotto raggruppa più unità, un seriale identifica una singola unità."},
+  {name:"Serial Number",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Identificatore univoco per una singola unità di prodotto. Tracciabilità completa lungo tutta la vita del pezzo. Si configura con Track Inventory 'by Unique Serial Number'.",note:"Ogni movimento di un prodotto serializzato richiede l'inserimento del seriale riga per riga."},
+  {name:"Multi-Step Routes",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Funzionalità che consente flussi logistici con più passaggi intermedi. Si attiva in Warehouse → Multi-Step Routes.",note:"Incoming: 1 step (ricevi+store), 2 steps (ricevi→store), 3 steps (ricevi→QC→store). Outgoing: 1 step (deliver), 2 steps (pick→deliver), 3 steps (pick→pack→deliver)."},
+  {name:"Operation Type (Tipo di operazione)",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Categoria che classifica ogni movimento: Receipts, Delivery Orders, Internal Transfers, Manufacturing. Per ogni tipo si definiscono: location, serial number, reservation policy, backorder policy."},
+  {name:"Internal Transfer",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Movimento di merce tra due location interne. Non genera documenti fiscali. Usato per spostare stock tra scaffali, zone di staging, aree QC o warehouse diversi.",note:"Nei flussi multi-step, i passaggi intermedi (pick→pack) sono Internal Transfers generati automaticamente."},
+  {name:"Reservation (Stock)",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Prenotazione delle quantità a stock per soddisfare un ordine prima del prelievo fisico. Reservation ≠ movimento: è solo allocazione. Politica configurabile: alla conferma, manuale, o N giorni prima della data.",note:"Le reservation appaiono nei report come 'demand' anche prima che la merce sia fisicamente mossa."},
+  {name:"Inventory Overview",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Schermata principale dell'app Inventory. Mostra lo stato di tutte le operazioni attive per warehouse: receipt in attesa, delivery da evadere, ecc."},
+  {name:"Moves Analysis",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Report che analizza tutti i movimenti di magazzino con filtri per periodo, prodotto, location, tipo di operazione. Include anche previsioni basate sulle reservation.",note:"Accessibile da Inventory → Reporting → Moves Analysis."},
+  {name:"Forecast Stock",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Proiezione futura della disponibilità: stock attuale + ricezioni attese − consegne pianificate. I Visibility Days permettono di vedere quando il forecast va in negativo e anticipare il riordino."},
+  {name:"Visibility Days",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Parametro nelle Reordering Rules che definisce quanti giorni in avanti guardare nel forecast. Se lo stock previsto scende sotto il minimo entro quel periodo, viene proposto un riordino.",note:"Esempio: Visibility Days = 7 → Odoo propone il riordino se lo stock andrà sotto soglia nei prossimi 7 giorni."},
+  {name:"Quality Control (QC step)",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Step intermedio nel flusso incoming a 3 passaggi. Prima dello store definitivo, la merce viene spostata in una location dedicata al controllo qualità."},
+  {name:"Pick / Pack / Deliver",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Tre step del flusso outgoing a 3 passaggi. Pick: prelievo dallo scaffale. Pack: imballaggio e consolidamento. Deliver: consegna finale. Ogni step genera un Internal Transfer separato.",note:"In un flusso a 2 step si usano solo Pick + Deliver, saltando il Pack."},
+  {name:"Receive + Store (step incoming)",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Flusso incoming a 2 step. Receive: merce registrata in area di staging. Store: merce spostata dallo staging alla location definitiva.",note:"Il flusso a 1 step combina ricezione e stoccaggio in una sola operazione."},
+  {name:"Stock Quant",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Entità che rappresenta lo stato fisico dello stock: quantità di un prodotto (+ eventuale lotto/serial) in una location specifica. Lo stock è la somma di tutti i Quants.",note:"Quant = stato. Move = evento. Picking = processo. Distinzione fondamentale per capire l'architettura di Inventory."},
+  {name:"Package",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Contenitore fisico (scatola, pallet) che raggruppa più prodotti per spostarli insieme come un'unica entità logistica.",note:"Utile nei flussi di Pack (step 2 dell'outgoing a 3 step) e nelle ricezioni di pallet interi."},
+  {name:"Cross-docking",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Flusso in cui la merce in arrivo dal fornitore viene instradata direttamente verso la spedizione al cliente senza essere messa a stock. La merce transita dal warehouse ma non viene stoccata.",note:"Diverso dal Dropshipping: nel Cross-docking la merce passa dal warehouse; nel Dropshipping bypass totale."},
+  {name:"Move Lifecycle",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Ciclo di vita di uno Stock Move: draft → confirmed (domanda esiste, stock non riservato) → assigned (stock riservato) → done (movimento completato fisicamente).",note:"Un move può splittarsi (lotti, quantità parziali) generando più stock.move.line figli."},
+  {name:"Manufacturing Supply",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Flusso di approvvigionamento dei componenti per la produzione. Quando parte un Manufacturing Order (MO), Inventory genera automaticamente i movimenti per prelevare i componenti e portarli alla location di produzione. Il prodotto finito genera poi un movimento di ingresso nello stock.",note:"Flussi multi-step produzione: 2 step = Pick components → Manufacture; 3 step = Pick → Manufacture → Store."},
+  {name:"Returns (Resi)",cat:"inventory",badge:"b-inventory",app:"inventory",def:"Flusso inverso per la restituzione di merce dal cliente al magazzino (customer return) o dal magazzino al fornitore (vendor return). Si genera un Return dal picking originale, creando un nuovo picking con location invertite.",note:"Il return crea nuovi Stock Moves nella direzione opposta e aggiorna i Quants. Può essere parziale."},
+  {name:"qty_available / virtual_available",cat:"dev",badge:"b-dev",app:"inventory",def:"Campi compute su product.product. qty_available: quantità fisicamente presente (somma dei Quants). virtual_available: quantità prevista futura = qty_available + entrate pianificate − uscite pianificate.",note:"virtual_available è la base del Forecast Stock e delle Reordering Rules."},
+  {name:"stock.move.line",cat:"dev",badge:"b-dev",app:"inventory",def:"Riga dettagliata di uno Stock Move. Traccia l'esecuzione effettiva con lot_id, serial number e package. Una move può avere più move.line in caso di lotti o quantità parziali."},
+  {name:"stock.quant",cat:"dev",badge:"b-dev",app:"inventory",def:"Modello ORM per lo stato dello stock: product_id + location_id + lot_id → quantity. Aggiornato automaticamente al completamento di ogni Stock Move (_action_done).",note:"Non modificare i quant direttamente in produzione: usare sempre i movimenti."},
+  {name:"stock.location",cat:"dev",badge:"b-dev",app:"inventory",def:"Modello ORM per le location. Contiene usage (internal/customer/vendor/inventory/production), location_id (parent), flag scrap_location e return_location. La gerarchia è ricorsiva."},
+  {name:"stock.warehouse",cat:"dev",badge:"b-dev",app:"inventory",def:"Modello ORM per i warehouse. Contiene i riferimenti ai picking type standard (in_type_id, out_type_id, int_type_id), alla location di stock principale (lot_stock_id) e alla configurazione dei flussi."},
+  {name:"_action_confirm() / _action_assign() / _action_done()",cat:"dev",badge:"b-dev",app:"inventory",def:"Metodi ORM del motore di movimenti su stock.move. _action_confirm(): conferma il move. _action_assign(): reservation (matching move ↔ quant). _action_done(): esegue il movimento fisico, aggiorna i Quants e chiude il picking.",note:"Override comuni per logiche custom di valutazione stock, tracciabilità o integrazioni contabili."},
 ];
 
 const CATS=[
-  {key:"all",label:"Tutte"},
-  {key:"ordini",label:"Ordini"},
-  {key:"tempi",label:"Lead Time"},
-  {key:"accordi",label:"Accordi"},
-  {key:"logistica",label:"Logistica"},
-  {key:"prodotti",label:"Prodotti"},
-  {key:"controllo",label:"Controllo"},
-  {key:"pricing",label:"Pricing"},
-  {key:"promo",label:"Promozioni"},
-  {key:"config",label:"Config"},
-  {key:"dev",label:"Dev / ORM"},
-  {key:"crm",label:"CRM"},
-  {key:"contacts",label:"Contacts"},
+  {key:"all",label:"Tutte"},{key:"ordini",label:"Ordini"},{key:"inventory",label:"Inventory"},
+  {key:"logistica",label:"Logistica"},{key:"tempi",label:"Lead Time"},{key:"accordi",label:"Accordi"},
+  {key:"prodotti",label:"Prodotti"},{key:"controllo",label:"Controllo"},{key:"pricing",label:"Pricing"},
+  {key:"promo",label:"Promozioni"},{key:"config",label:"Config"},{key:"dev",label:"Dev / ORM"},
+  {key:"crm",label:"CRM"},{key:"contacts",label:"Contacts"},
 ];
 
 document.getElementById("total-count").textContent = TERMS.length;
-
 let activeApp="all", activeCat="all";
 
 function setApp(app){
   activeApp=app;
-  ["all","purchase","sales","crm","contacts"].forEach(a=>{
-    const el=document.getElementById("tab-"+a);
-    if(el)el.classList.remove("active");
-  });
+  ["all","purchase","sales","crm","contacts","inventory"].forEach(a=>{const el=document.getElementById("tab-"+a);if(el)el.classList.remove("active");});
   document.getElementById("tab-"+app).classList.add("active");
   render();
 }
 
-const filtersEl=document.getElementById("filters");
-const listEl=document.getElementById("list");
-const countEl=document.getElementById("count");
-const searchEl=document.getElementById("search");
+const filtersEl=document.getElementById("filters"),listEl=document.getElementById("list"),countEl=document.getElementById("count"),searchEl=document.getElementById("search");
 
 CATS.forEach(c=>{
   const btn=document.createElement("button");
   btn.className="filter-btn"+(c.key==="all"?" active":"");
   btn.textContent=c.label;
-  btn.onclick=()=>{
-    activeCat=c.key;
-    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active");
-    render();
-  };
+  btn.onclick=()=>{activeCat=c.key;document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");render();};
   filtersEl.appendChild(btn);
 });
 
-function appMatch(t){
-  if(activeApp==="all")return true;
-  if(t.app==="multi"||t.app==="both")return true;
-  return t.app===activeApp;
-}
-function dotClass(app){
-  if(app==="purchase")return"dot-purchase";
-  if(app==="sales")return"dot-sales";
-  if(app==="crm")return"dot-crm";
-  if(app==="contacts")return"dot-contacts";
-  if(app==="both")return"dot-both";
-  return"dot-multi";
-}
+function appMatch(t){if(activeApp==="all")return true;if(t.app==="multi"||t.app==="both")return true;return t.app===activeApp;}
+function dotClass(app){const m={purchase:"dot-purchase",sales:"dot-sales",crm:"dot-crm",contacts:"dot-contacts",inventory:"dot-inventory",both:"dot-both"};return m[app]||"dot-multi";}
 function catLabel(key){return CATS.find(c=>c.key===key)?.label||key;}
 
 function render(){
   const q=searchEl.value.toLowerCase();
-  const filtered=TERMS.filter(t=>
-    appMatch(t)&&
-    (activeCat==="all"||t.cat===activeCat)&&
-    (!q||t.name.toLowerCase().includes(q)||t.def.toLowerCase().includes(q)||(t.note&&t.note.toLowerCase().includes(q)))
-  );
-  countEl.textContent = filtered.length === TERMS.length
-    ? `${TERMS.length} termini`
-    : `${filtered.length} di ${TERMS.length} termini`;
+  const filtered=TERMS.filter(t=>appMatch(t)&&(activeCat==="all"||t.cat===activeCat)&&(!q||t.name.toLowerCase().includes(q)||t.def.toLowerCase().includes(q)||(t.note&&t.note.toLowerCase().includes(q))));
+  countEl.textContent=filtered.length===TERMS.length?`${TERMS.length} termini`:`${filtered.length} di ${TERMS.length} termini`;
   listEl.innerHTML=filtered.length?filtered.map(t=>`
     <div class="term-card">
       <div class="term-header">
@@ -575,10 +278,8 @@ function render(){
       </div>
       <div class="term-def">${t.def}</div>
       ${t.note?`<div class="term-note">${t.note}</div>`:""}
-    </div>
-  `).join(""):`<div class="empty">Nessun termine trovato per questa ricerca.</div>`;
+    </div>`).join(""):`<div class="empty">Nessun termine trovato.</div>`;
 }
-
 render();
 </script>
 </body>
